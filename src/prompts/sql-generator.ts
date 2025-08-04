@@ -46,6 +46,7 @@ export async function sqlGeneratorPromptHandler(
         sqlDialect = "mssql";
         break;
       default:
+        // HADBもここに来ることを想定
         sqlDialect = "ansi"; // Default to standard SQL if connector type is unknown
     }
 

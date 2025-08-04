@@ -11,4 +11,5 @@ export const allowedKeywords: Record<ConnectorType, string[]> = {
   mariadb: ["select", "with", "explain", "analyze", "show", "describe", "desc"],
   sqlite: ["select", "with", "explain", "analyze", "pragma"],
   sqlserver: ["select", "with", "explain", "showplan"],
+  HADB: ["select", "with"],
 };
