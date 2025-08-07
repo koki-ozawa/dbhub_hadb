@@ -43,6 +43,7 @@ class HADBDSNParser implements DSNParser {
           connStr += `${key.toUpperCase()}=${value};`;
           }
       });
+      console.log("DSN:", connStr);
       return connStr;
     } catch (error) {
       throw new Error(
@@ -79,7 +80,7 @@ export class HADBConnector implements Connector {
       const connStr = await this.dsnParser.parse(dsn);
       this.connection = await odbc.connect(connStr);
       // 接続テスト
-      await this.connection.query("SELECT * FROM master.tables limit 1");
+      await this.connection.query("SELECT * FROM master.sql_tables limit 1");
       console.error("Successfully connected to HADB database");
     } catch (err) {
       console.error("Failed to connect to HADB database:", err);
